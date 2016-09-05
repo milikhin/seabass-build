@@ -5,7 +5,14 @@ The scripts are intented for automatic building of Seabass project (fetching sou
 Available scripts:
 * build-release.sh - build [latest Seabass release](https://github.com/milikhin/seabass/releases/latest)
 
-## Getting started
-1. Clone this repo to separate directory
-1. Run `sh build-release.sh`
-1. Hit Enter a few times :-)
+## Requirements
+* Ubuntu 16.04
+
+## How it works
+1. Clone this repo into separate directory
+2. Run `bash build-release.sh` from this directory
+3. [Patch Cordova's manifest.js](https://github.com/milikhin/seabass/blob/master/building.md#31-patch-for-an-unconfined-version) when asked if needed
+
+## State
+The script was tested on a few instances of Ubuntu 16.04 and should just work. In case something goes wrong, complete build instructions are also [available](https://github.com/milikhin/seabass/blob/master/building.md) in the main Seabass repo.
+
