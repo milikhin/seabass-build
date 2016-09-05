@@ -8,7 +8,7 @@ Available scripts:
 ## Requirements
 * Ubuntu 16.04
 
-## How it works
+## How to use
 1. Clone this repo into separate directory
 2. Run `bash build-release.sh` from this directory
 3. [Patch Cordova's manifest.js](https://github.com/milikhin/seabass/blob/master/building.md#31-patch-for-an-unconfined-version) when asked if needed
