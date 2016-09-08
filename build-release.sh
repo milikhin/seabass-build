@@ -1,5 +1,5 @@
-APP_VERSION="0.2.9"
-APP_VVERSION="v0.2.9"
+APP_VERSION="0.2.10"
+APP_VVERSION="v0.2.10"
 N_STEPS=7
 CORDOVA_PPA_URL="http://ppa.launchpad.net/cordova-ubuntu/ppa/ubuntu"
 CORDOVA_PPA="ppa:cordova-ubuntu/ppa"
