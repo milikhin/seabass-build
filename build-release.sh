@@ -40,10 +40,10 @@ echo
 
 echo "3/$N_STEPS. Checking Ubuntu SDK PPA"
 if ! grep -q "$SDK_PPA_URL" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
-    echo "Adding Cordova PPA to apt sources"
+    echo "Adding Ubuntu SDK PPA to apt sources"
     sudo apt-add-repository $SDK_PPA
 else
-    echo "Cordova PPA already added to sources.list. Skipping."
+    echo "Ubuntu SDK PPA already added to sources.list. Skipping."
 fi
 echo "DONE";
 echo
