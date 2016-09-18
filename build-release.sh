@@ -66,7 +66,7 @@ echo
 echo "6/$N_STEPS. Installing app dependencies"
 cd seabass-$APP_VERSION
 mkdir www
-cordova platform add ubuntu
+cordova platform add ubuntu@4.3.6
 cordova plugin add cordova-plugin-file 
 (npm install; cd src; bower install;)
 echo "DONE";
