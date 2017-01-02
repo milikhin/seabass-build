@@ -1,5 +1,5 @@
-APP_VERSION="0.2.14"
-APP_VVERSION="v0.2.14"
+APP_VERSION="0.3.3"
+APP_VVERSION="v0.3.3"
 N_STEPS=7
 CORDOVA_PPA_URL="http://ppa.launchpad.net/cordova-ubuntu/ppa/ubuntu"
 CORDOVA_PPA="ppa:cordova-ubuntu/ppa"
@@ -51,7 +51,7 @@ echo
 echo "4/$N_STEPS. Installing build tools"
 sudo apt update
 sudo apt install cordova-cli
-sudo apt install click-dev phablet-tools ubuntu-sdk-api-15.04
+sudo apt install click-dev phablet-tools
 sudo click chroot -a armhf -f ubuntu-sdk-15.04 install cmake libicu-dev:armhf pkg-config qtbase5-dev:armhf qtchooser qtdeclarative5-dev:armhf qtfeedback5-dev:armhf qtlocation5-dev:armhf qtmultimedia5-dev:armhf qtpim5-dev:armhf libqt5sensors5-dev:armhf qtsystems5-dev:armhf
 echo "DONE";
 echo
@@ -66,8 +66,9 @@ echo
 echo "6/$N_STEPS. Installing app dependencies"
 cd seabass-$APP_VERSION
 mkdir www
-cordova platform add ubuntu@4.3.4
+cordova platform add ubuntu@4.3.5 --usegit
 cordova plugin add cordova-plugin-file 
+cordova plugin add cordova-plugin-dialogs
 (npm install; cd src; bower install;)
 echo "DONE";
 echo
