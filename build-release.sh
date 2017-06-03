@@ -1,6 +1,8 @@
 APP_VERSION="master" # Exmaple for specific version: 0.4.0
 APP_VVERSION="master" # Example for specific version: v0.4.0
-N_STEPS=7
+
+
+N_STEPS=8
 CORDOVA_PPA_URL="http://ppa.launchpad.net/cordova-ubuntu/ppa/ubuntu"
 CORDOVA_PPA="ppa:cordova-ubuntu/ppa"
 SDK_PPA_URL="http://ppa.launchpad.net/ubuntu-sdk-team/ppa/ubuntu"
@@ -28,7 +30,7 @@ command -v bower >/dev/null 2>&1 || {
 echo "DONE";
 echo
 
-echo "2/$N_STEPS. Checking Cordova PPA"
+echo "2/$N_STEPS. Checking Cordova PPA"https://github.com/milikhin/seabass/blob/master/building.md
 if ! grep -q "$CORDOVA_PPA_URL" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
     echo "Adding Cordova PPA to apt sources"
     sudo apt-add-repository $CORDOVA_PPA
@@ -51,7 +53,7 @@ echo
 echo "4/$N_STEPS. Installing build tools"
 sudo apt update
 sudo apt install cordova-cli
-sudo apt install click-dev phablet-tools
+sudo apt install click-dev phablet-toolshttps://github.com/milikhin/seabass/blob/master/building.md
 sudo click chroot -a armhf -f ubuntu-sdk-15.04 install cmake libicu-dev:armhf pkg-config qtbase5-dev:armhf qtchooser qtdeclarative5-dev:armhf qtfeedback5-dev:armhf qtlocation5-dev:armhf qtmultimedia5-dev:armhf qtpim5-dev:armhf libqt5sensors5-dev:armhf qtsystems5-dev:armhf
 echo "DONE";
 echo
@@ -66,23 +68,20 @@ echo
 echo "6/$N_STEPS. Installing app dependencies"
 cd seabass-$APP_VERSION
 mkdir www
-cordova platform add ubuntu@4.3.5 --usegit
+cordova platform add ubuntu
 cordova plugin add cordova-plugin-file 
 cordova plugin add cordova-plugin-dialogs
 (npm install; cd src; bower install;)
 echo "DONE";
 echo
 
-echo
-echo "*** Preparing apparmor manifest ***"
-echo "You might want to patch Cordova's manifest.js file to build unconfined version of the app"
-echo "see https://github.com/milikhin/seabass/blob/master/building.md#31-patch-for-an-unconfined-version for more info..."
-echo 
-
-read -n1 -r -p "Press any key to continue once manifest.js is OK..."
-
 echo "7/$N_STEPS. Building sources"
 gulp build
+
+echo
+echo
+echo "8/$N_STEPS. Updating Cordova"
+cordova platform update ubuntu https://github.com/milikhin/cordova-ubuntu.git --usegit
 
 echo
 echo
@@ -92,3 +91,9 @@ echo "Build click package :: 'cd seabass-$APP_VERSION; cordova build --device'"
 echo "Build & run on connected device :: 'cd seabass-$APP_VERSION; cordova run --device'"
 echo "Build & run in Debug mode on connected device :: 'cd seabass-$APP_VERSION; cordova run --device --debug'"
 echo "Build & install .deb package :: '(cd seabass-$APP_VERSION; cordova build ubuntu; cd platforms/ubuntu/native/seabass.mikhael; debuild -uc -us; sudo dpkg -i ../seabass.mikhael_${APP_VERSION}_amd64.deb )'"
+
+echo
+echo "*** Preparing apparmor manifest ***"
+echo "You might want to patch Cordova's manifest.js file to build unconfined version of the app"
+echo "see https://github.com/milikhin/seabass/blob/master/building.md#31-patch-for-an-unconfined-version for more info..."
+echo 
