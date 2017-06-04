@@ -1,5 +1,5 @@
-APP_VERSION="master" # Exmaple for specific version: 0.4.0
-APP_VVERSION="master" # Example for specific version: v0.4.0
+APP_VERSION="0.4.8" # Exmaple for specific version: 0.4.0
+APP_VVERSION="v0.4.8" # Example for specific version: v0.4.0
 
 
 N_STEPS=8
@@ -69,8 +69,8 @@ echo "6/$N_STEPS. Installing app dependencies"
 cd seabass-$APP_VERSION
 mkdir www
 cordova platform add ubuntu
-cordova plugin add cordova-plugin-file 
-cordova plugin add cordova-plugin-dialogs
+cordova plugin add https://github.com/milikhin/cordova-plugin-file.git    # cordova-plugin-file 
+cordova plugin add https://github.com/milikhin/cordova-plugin-dialogs.git # cordova-plugin-dialogs
 (npm install; cd src; bower install;)
 echo "DONE";
 echo
