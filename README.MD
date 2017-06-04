@@ -1,6 +1,9 @@
 # Seabass build scripts
 
-The scripts are intented for automatic building of Seabass project (fetching sources, managing dependencies, code compilation, ...).
+The script is intented for automatic building of Seabass code editor for Ubuntu Touch (fetching sources, managing dependencies, code compilation, ...).
+
+* for v0.4.8+ use *master* branch
+* for v0.4.7 and before use *before-0.4.7* branch.
 
 Available scripts:
 * build-release.sh - build [latest Seabass release](https://github.com/milikhin/seabass/releases/latest)
