@@ -53,7 +53,7 @@ echo
 echo "4/$N_STEPS. Installing build tools"
 sudo apt update
 sudo apt install cordova-cli
-sudo apt install click-dev phablet-toolshttps://github.com/milikhin/seabass/blob/master/building.md
+sudo apt install click-dev phablet-tools
 sudo click chroot -a armhf -f ubuntu-sdk-15.04 install cmake libicu-dev:armhf pkg-config qtbase5-dev:armhf qtchooser qtdeclarative5-dev:armhf qtfeedback5-dev:armhf qtlocation5-dev:armhf qtmultimedia5-dev:armhf qtpim5-dev:armhf libqt5sensors5-dev:armhf qtsystems5-dev:armhf
 echo "DONE";
 echo
