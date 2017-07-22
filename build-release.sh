@@ -1,5 +1,5 @@
-APP_VERSION="0.4.8" # Exmaple for specific version: 0.4.0
-APP_VVERSION="v0.4.8" # Example for specific version: v0.4.0
+APP_VERSION="0.5.0" # Exmaples for specific versions: 0.4.0, master
+APP_VVERSION="v0.5.0" # Examples for specific versions: v0.4.0, master
 
 
 N_STEPS=8
@@ -68,20 +68,15 @@ echo
 echo "6/$N_STEPS. Installing app dependencies"
 cd seabass-$APP_VERSION
 mkdir www
-cordova platform add ubuntu
-cordova plugin add https://github.com/milikhin/cordova-plugin-file.git    # cordova-plugin-file 
-cordova plugin add https://github.com/milikhin/cordova-plugin-dialogs.git # cordova-plugin-dialogs
+cordova platform add https://github.com/milikhin/cordova-ubuntu.git --usegit
+cordova plugin add https://github.com/milikhin/cordova-plugin-file.git 
+cordova plugin add https://github.com/milikhin/cordova-plugin-dialogs.git
 (npm install; cd src; bower install;)
 echo "DONE";
 echo
 
 echo "7/$N_STEPS. Building sources"
 gulp build
-
-echo
-echo
-echo "8/$N_STEPS. Updating Cordova"
-cordova platform update ubuntu https://github.com/milikhin/cordova-ubuntu.git --usegit
 
 echo
 echo
